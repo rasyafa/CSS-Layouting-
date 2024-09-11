@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galeri Foto Grid</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling untuk body */
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #cbc8c6, #171515);
+            text-align: center;
+        }
+
+        /* Container utama untuk galeri */
+        .gallery-container {
+            padding: 20px;
+        }
+
+        /* Styling untuk judul galeri */
+        h1 {
+            color: white;
+            font-style: italic;
+            text-align: right;
+            font-size: 28px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h1::before {
+            content: '';
+            display: block;
+            width: 300px;
+            height: 2px;
+            background-color: black;
+            /* Warna garis */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(50%);
+            margin-right: 5px;
+            /* Jarak antara garis dan teks */
+        }
+
+        /* Styling grid untuk galeri */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            /* Set grid agar otomatis menyesuaikan kolom dengan lebar minimum 300px */
+        }
+
+        /* Styling untuk setiap item dalam galeri */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Efek hover untuk item */
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            opacity: 0.9;
+        }
+
+        /* Container untuk gambar */
+        .image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            /* Agar gambar yang melampaui container tidak terlihat */
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        /* Gambar */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            /* Menambahkan transisi yang halus */
+        }
+
+        /* Efek hover: zoom pada gambar */
+        .image-container:hover img {
+            transform: scale(1.2);
+            /* Memperbesar gambar saat hover */
+        }
+
+        /* Caption untuk setiap gambar */
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            /* Latar belakang transparan */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+            opacity: 1;
+            /* Default opacity untuk terlihat */
+            visibility: visible;
+            /* Caption terlihat secara default */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            /* Transisi halus */
+        }
+
+        /* Hover pada image-container membuat caption menghilang */
+        .image-container:hover .gallery-caption {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive untuk tampilan yang lebih kecil */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery-container">
+        <h1>House Gallery</h1>
+        <div class="gallery">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="wood.jpg" alt="Product Image">
+                    <div class="gallery-caption">Wood House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="minimalis.jpg" alt="Product Image">
+                    <div class="gallery-caption">Minimalist House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="japan.jpg" alt="Product Image">
+                    <div class="gallery-caption">Japandi House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="classic.jpg" alt="Product Image">
+                    <div class="gallery-caption">Classic House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="apartemen.jpg" alt="Product Image">
+                    <div class="gallery-caption">Apartment Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="eco.jpg" alt="Product Image">
+                    <div class="gallery-caption">Eco House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="kaca.jpg" alt="Product Image">
+                    <div class="gallery-caption">Glass House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="mansion.jpg" alt="Product Image">
+                    <div class="gallery-caption">Mansion Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="modern.jpg" alt="Product Image">
+                    <div class="gallery-caption">Modern House Exterior</div>
+                </div>
+            </div>
+
+            <!-- Item 10 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="skandinavian.jpg" alt="Product Image">
+                    <div class="gallery-caption">Scandinavian House Exterior</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
